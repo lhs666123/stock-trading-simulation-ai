@@ -1,0 +1,25 @@
+{
+  "rounds": [
+    {
+      "round": 1,
+      "date": "2025-12-02T22:28:32.339093",
+      "traders": {
+        "情绪投资者": {
+          "final_return": -0.4398398999999999,
+          "learning_progress": 0.2695967532737619,
+          "final_portfolio_value": 56016.01000000001
+        },
+        "理性基金经理": {
+          "final_return": -0.11212430000000051,
+          "learning_progress": 0.04049544087933117,
+          "final_portfolio_value": 88787.56999999995
+        },
+        "信息泄露者": {
+          "final_return": -0.5602465999999999,
+          "learning_progress": 0.41982662921781955,
+          "final_portfolio_value": 43975.340000000004
+        }
+      }
+    }
+  ]
+}
