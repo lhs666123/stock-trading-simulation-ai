@@ -32,84 +32,82 @@ stock-trading-simulation/
 
 ## workflow
 ```mermaid
-    graph TD
-    A[🚀 开始股票交易模拟] --> B[初始化系统]
+   graph TD
+    A[🚀 Start Stock Trading Simulation] --> B[Initialize System]
     
-    B --> B1[📊 生成股票数据]
-    B --> B2[🤖 创建智能体]
-    B --> B3[💾 加载学习模型]
+    B --> B1[📊 Generate Stock Data]
+    B --> B2[🤖 Create AI Agents]
+    B --> B3[💾 Load Learning Models]
     
-    B1 --> B11[📈 生成10只股票]
-    B1 --> B12[🔄 生成30天数据]
-    B1 --> B13[💾 保存到JSON]
+    B1 --> B11[📈 Generate 10 Stocks]
+    B1 --> B12[🔄 Generate 30 Days Data]
+    B1 --> B13[💾 Save to JSON]
     
-    B2 --> B21[🎭 情绪投资者]
-    B2 --> B22[🧠 理性基金经理]
-    B2 --> B23[🕵️ 信息泄露者]
+    B2 --> B21[🎭 Emotional Investor]
+    B2 --> B22[🧠 Rational Fund Manager]
+    B2 --> B23[🕵️ Insider Trader]
     
-    B3 --> B31[加载Q-learning模型]
-    B3 --> B32[加载策略优化器]
-    B3 --> B33[加载模式识别器]
+    B3 --> B31[Load Q-learning Models]
+    B3 --> B32[Load Strategy Optimizers]
+    B3 --> B33[Load Pattern Recognizers]
     
-    B21 --> C{模拟轮次循环}
-    B22 --> C{模拟轮次循环}
-    B23 --> C{模拟轮次循环}
+    B --> C{Simulation Rounds Loop}
     
-    C --> D[🎯 第N轮模拟]
-    D --> E[初始化本轮数据]
+    C --> D[🎯 Round N Simulation]
+    D --> E[Initialize Round Data]
     
-    E --> F{周循环 4周}
+    E --> F{Week Loop 4 Weeks}
     
-    F --> G[📅 第M周开始]
-    G --> H{日循环 7.5天}
+    F --> G[📅 Week M Start]
+    G --> H{Day Loop 7.5 Days}
     
-    H --> I[🌅 第K天交易]
+    H --> I[🌅 Day K Trading]
     
-    I --> J[📢 市场评论<br>每隔3天]
-    I --> K[📰 新闻反应<br>特定日期]
-    I --> L[🤝 交易执行]
-    I --> M[📊 结果分析]
+    I --> J[📢 Market Commentary<br>Every 3 Days]
+    I --> K[📰 News Reaction<br>Specific Dates]
+    I --> L[🤝 Execute Trades]
+    I --> M[📊 Result Analysis]
     
-    L --> L1[🎭 情绪投资者决策]
-    L --> L2[🧠 理性基金经理决策]
-    L --> L3[🕵️ 信息泄露者决策]
+    L --> L1[🎭 Emotional Investor Decisions]
+    L --> L2[🧠 Rational Manager Decisions]
+    L --> L3[🕵️ Insider Trader Decisions]
     
-    L1 --> L11[基于情绪交易]
-    L2 --> L21[基于技术分析]
-    L3 --> L31[基于内幕信息]
+    L1 --> L11[Emotion-based Trading]
+    L2 --> L21[Technical Analysis]
+    L3 --> L31[Insider Information]
     
-    M --> M1[计算收益结果]
-    M --> M2[更新强化学习]
-    M --> M3[记录经验记忆]
+    M --> M1[Calculate Profit Results]
+    M --> M2[Update Reinforcement Learning]
+    M --> M3[Record Experience Memory]
     
-    H --> N[📈 计算周收益率]
-    N --> O[💬 策略讨论会]
-    N --> P[🗣️ 经验分享会]
-    N --> Q[🎓 互相学习]
+    H --> N[📈 Calculate Weekly Returns]
+    N --> O[💬 Strategy Discussion]
+    N --> P[🗣️ Experience Sharing]
+    N --> Q[🎓 Peer Learning]
     
-    F --> R[📊 记录周性能]
+    F --> R[📊 Record Weekly Performance]
     
-    C --> S[🎊 最终总结]
+    C --> S[🎊 Final Summary]
     
-    S --> T[📈 计算总收益]
-    S --> U[🏆 评选最佳交易者]
-    S --> V[📚 评选学习进步奖]
-    S --> W[💾 保存学习模型]
+    S --> T[📈 Calculate Total Returns]
+    S --> U[🏆 Select Best Trader]
+    S --> V[📚 Select Most Improved Learner]
+    S --> W[💾 Save Learning Models]
     
-    W --> X[保存RL模型]
-    W --> Y[保存策略优化器]
-    W --> Z[保存模式识别器]
+    W --> X[Save RL Models]
+    W --> Y[Save Strategy Optimizers]
+    W --> Z[Save Pattern Recognizers]
     
-    S --> AA[📋 生成报告文件]
+    S --> AA[📋 Generate Report Files]
     
     AA --> AB[trading_conversations.json]
     AA --> AC[trading_experience_memory.json]
     AA --> AD[trading_performance.json]
     AA --> AE[cumulative_learning.json]
     
-    C --> AF{是否还有下一轮?}
-    AF -->|是| D
-    AF -->|否| AG[🏁 模拟完成]
+    C --> AF{More Rounds?}
+    AF -->|Yes| D
+    AF -->|No| AG[🏁 Simulation Complete]
 ```
 ## 🚀 Quick Start
 
