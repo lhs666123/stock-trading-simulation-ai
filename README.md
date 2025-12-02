@@ -109,9 +109,10 @@ stock-trading-simulation/
     AF -->|Yes| D
     AF -->|No| AG[🏁 Simulation Complete]
 ```
-##🔄 Simplified Core Flowchart
+
 ```mermaid
 graph TD
+    title🔄 Simplified Core Flowchart
     A[🚀 Start Simulation] --> B[📊 Generate Data]
     A --> C[🤖 Create 3 AI Traders]
     A --> D[💾 Load Models]
