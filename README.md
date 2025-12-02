@@ -30,7 +30,7 @@ stock-trading-simulation/
     └── trading_performance_round_X.json
 ```
 
-## workflow
+## 📈 Stock Trading Simulation System Flowchart
 ```mermaid
    graph TD
     A[🚀 Start Stock Trading Simulation] --> B[Initialize System]
