@@ -1,0 +1,25 @@
+{
+  "rounds": [
+    {
+      "round": 1,
+      "date": "2025-12-02T23:39:57.903649",
+      "traders": {
+        "Emotional Investor": {
+          "final_return": -0.30842289999999994,
+          "learning_progress": 0.16599010222873342,
+          "final_portfolio_value": 69157.71
+        },
+        "Rational Fund Manager": {
+          "final_return": -0.14741609999999986,
+          "learning_progress": 0.18946933968353602,
+          "final_portfolio_value": 85258.39000000001
+        },
+        "Informed Trader": {
+          "final_return": -0.29909919999999984,
+          "learning_progress": 0.1705764735613188,
+          "final_portfolio_value": 70090.08000000002
+        }
+      }
+    }
+  ]
+}
