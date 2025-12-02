@@ -1,7 +1,7 @@
 """
 Agent Stock Trading Simulation System - Enhanced Iterative Learning Edition (Fixed Trading Frequency)
-Three types of agents: Emotional Investor vs. Rational Fund Manager vs. Insider Trader
-Added: Reinforcement Learning, Experience Memory, Strategy Optimization, Adaptive Capability
+Three types of agents: Emotional Investors vs. Rational Fund Managers vs. Informed Traders
+New features: Reinforcement Learning, Experience Memory, Strategy Optimization, Adaptive Ability
 """
 
 import random
@@ -61,7 +61,7 @@ class StockDataGenerator:
                 pm_volatility = random.uniform(0.008, 0.025)
                 pm_close = pm_open * (1 + random.gauss(0, pm_volatility))
                 
-                # Calculate daily highs and lows
+                # Calculate daily high and low
                 day_high = max(am_open, am_close, pm_open, pm_close)
                 day_low = min(am_open, am_close, pm_open, pm_close)
                 
@@ -111,7 +111,7 @@ class StockDataGenerator:
 
 
 class ReinforcementLearningSystem:
-    """Reinforcement Learning System - Enables agents to learn from experience"""
+    """Reinforcement Learning System - Allows agents to learn from experience"""
     
     def __init__(self):
         self.q_table = {}  # Q-learning table
@@ -203,10 +203,10 @@ class TradingStrategyOptimizer:
             return "default"
         
         if context in self.best_strategies:
-            # If best strategy for this context is cached, return it directly
+            # If there's a cached best strategy for this context, return it directly
             return self.best_strategies[context]
         
-        # Calculate average performance of all strategies
+        # Calculate average performance for all strategies
         strategy_scores = {}
         for strategy, performances in self.strategy_performance.items():
             if performances:
@@ -226,10 +226,10 @@ class TradingStrategyOptimizer:
     def generate_strategy_variation(self, base_strategy: str, creativity: float = 0.3) -> str:
         """Generate strategy variation"""
         variations = {
-            "Conservative": ["Reduce risk preference", "Increase stop-loss points", "Reduce position size"],
-            "Aggressive": ["Increase risk preference", "Loosen stop-loss", "Increase position size"],
+            "Conservative": ["Lower risk preference", "Increase stop-loss points", "Reduce position size"],
+            "Aggressive": ["Increase risk preference", "Relax stop-loss", "Increase position size"],
             "Technical": ["More technical indicators", "Focus on trading volume", "Analyze market structure"],
-            "Sentimental": ["Monitor market sentiment", "Track news events", "Follow social media"]
+            "Sentiment-based": ["Focus on market sentiment", "Monitor news events", "Track social media"]
         }
         
         if random.random() < creativity:
@@ -263,18 +263,18 @@ class MarketPatternRecognizer:
         # Trend judgment
         if len(prices) >= 3:
             short_trend = (prices[-1] - prices[-3]) / prices[-3]
-            if abs(short_trend) > 0.01:  # Lower threshold
+            if abs(short_trend) > 0.01:  # Lowered threshold
                 trend_type = "uptrend" if short_trend > 0 else "downtrend"
                 patterns.append({"name": f"Short-term {trend_type}", "confidence": min(0.8, abs(short_trend) * 2)})
         
         # Volatility judgment
-        if volatility > 0.01:  # Lower threshold
+        if volatility > 0.01:  # Lowered threshold
             patterns.append({"name": "High volatility", "confidence": min(0.9, volatility * 10)})
         elif volatility < 0.008:
             patterns.append({"name": "Low volatility", "confidence": min(0.9, (0.01 - volatility) * 100)})
         
         # Momentum judgment
-        if abs(momentum) > 0.03:  # Lower threshold
+        if abs(momentum) > 0.03:  # Lowered threshold
             momentum_type = "Strong upward" if momentum > 0 else "Strong downward"
             patterns.append({"name": momentum_type, "confidence": min(0.85, abs(momentum) * 3)})
         
@@ -309,13 +309,13 @@ class MarketPatternRecognizer:
         if pattern in self.patterns:
             success_rate = self.patterns[pattern]["success_rate"]
             if success_rate > 0.6:
-                return f"This pattern has a historical success rate of {success_rate:.1%}, suggesting aggressive trading"
+                return f"This pattern has a historical win rate of {success_rate:.1%}, recommended for active trading"
             elif success_rate < 0.4:
-                return f"This pattern has a historical success rate of {success_rate:.1%}, suggesting cautious operation"
+                return f"This pattern has a historical win rate of {success_rate:.1%}, recommended for cautious operation"
             else:
-                return f"This pattern has a historical success rate of {success_rate:.1%}, suggesting observation or small positions"
+                return f"This pattern has a historical win rate of {success_rate:.1%}, recommended for observation or small positions"
         
-        return "New pattern, recommend observing before making decisions"
+        return "New pattern, recommended to observe before decision-making"
 
 
 class AIClient:
@@ -334,9 +334,9 @@ class AIClient:
         try:
             messages = [{"role": "system", "content": system_prompt}]
             
-            # Add historical dialogue (if enabled)
+            # Add conversation history (if enabled)
             if use_history and self.conversation_history:
-                # Keep only the last 5 rounds of dialogue
+                # Keep only the recent 5 rounds of conversation
                 recent_history = self.conversation_history[-10:]
                 messages.extend(recent_history)
             
@@ -358,11 +358,11 @@ class AIClient:
             return response_content
         except Exception as e:
             print(f"❌ API call failed: {e}")
-            return f"Simulated response: Default response from {system_prompt.split('You are')[1].split(',')[0]}"
+            return f"Simulated response: Default answer of {system_prompt.split('You are')[1].split(',')[0]}"
 
 
 class BaseTrader:
-    """Base Trader Class - Enhanced Iterative Learning Capability"""
+    """Base Trader Class - Enhanced Iterative Learning Ability"""
     
     def __init__(self, trader_id: int, name: str, initial_capital: float = 100000):
         self.trader_id = trader_id
@@ -379,7 +379,7 @@ class BaseTrader:
         self.trading_strategy = ""
         self.personality_traits = self._generate_personality()
         
-        # Added iterative learning components
+        # New iterative learning components
         self.rl_system = ReinforcementLearningSystem()
         self.strategy_optimizer = TradingStrategyOptimizer()
         self.pattern_recognizer = MarketPatternRecognizer()
@@ -444,7 +444,7 @@ class BaseTrader:
     
     def analyze_trade_outcome(self, trade_decision: Dict, outcome: float):
         """Analyze trade outcome and learn"""
-        # Extract trading features
+        # Extract trade features
         state_features = {
             "stock": trade_decision.get("stock", ""),
             "action": trade_decision.get("action", ""),
@@ -459,7 +459,7 @@ class BaseTrader:
         # Get actual action
         action_type = f"{trade_decision.get('action', 'hold')}_{self._get_size_category(trade_decision.get('shares', 0))}"
         
-        # Reward: positive outcome = positive reward, negative outcome = negative reward
+        # Reward: positive returns are positive rewards, negative returns are negative rewards
         reward = outcome * 100  # Amplify reward
         
         # Update reinforcement learning model
@@ -473,7 +473,7 @@ class BaseTrader:
         self.learning_progress = min(1.0, self.learning_progress + abs(outcome) * self.adaptation_speed)
     
     def _get_size_category(self, shares: int) -> str:
-        """Determine trading size based on number of shares"""
+        """Determine trade size based on number of shares"""
         if shares <= 3:
             return "small"
         elif shares <= 8:
@@ -485,15 +485,15 @@ class BaseTrader:
         """Generate market commentary - Enhanced version"""
         system_prompt = f"""You are a {self.name}, please comment on the current market situation.
 Show your personality traits: {self.personality_traits}
-You have learned a lot from past trades, and your thinking is now deeper.
-Use your accumulated experience to provide unique market analysis."""
+You have learned a lot from past trades and now think more deeply.
+Use your accumulated experience to give unique market analysis."""
         
         user_prompt = f"""Please comment on the current market:
 
-Market overview: {market_data.get('summary', 'No data available')}
-Your holdings: {self.portfolio}
-Your return rate: {self.get_performance_summary()['total_return']:.2%}
-Your learning progress: {self.learning_progress:.1%}
+Market Overview: {market_data.get('summary', 'No data available')}
+Your Holdings: {self.portfolio}
+Your Return Rate: {self.get_performance_summary()['total_return']:.2%}
+Your Learning Progress: {self.learning_progress:.1%}
 
 Please share your market views in about 200 words, specifically showing what you've learned from experience:"""
         
@@ -501,40 +501,40 @@ Please share your market views in about 200 words, specifically showing what you
         return commentary
 
     def discuss_strategy_with(self, other_trader: 'BaseTrader', topic: str) -> str:
-        """Discuss strategy with other traders - Enhanced version"""
+        """Discuss strategy with other trader - Enhanced version"""
         system_prompt = f"""You are a {self.name}, discussing {topic} with {other_trader.name}.
 You are an experienced trader who can learn from other traders' experiences.
-Show the wisdom and insight you've gained through iterative learning."""
+Show the wisdom and insights you've gained through iterative learning."""
         
         user_prompt = f"""Please discuss {topic} with {other_trader.name}:
 
-Your strategy: {self.trading_strategy}
-Your recent learnings: {self._get_recent_lessons()}
-Counterparty type: {other_trader.name}
+Your Strategy: {self.trading_strategy}
+Your Recent Lessons: {self._get_recent_lessons()}
+Counterparty Type: {other_trader.name}
 
-Please have an in-depth strategy discussion, specifically sharing lessons you've learned from mistakes:"""
+Please engage in deep strategy discussion, specifically sharing lessons you've learned from mistakes:"""
         
         discussion = self.ai_client.generate_response(system_prompt, user_prompt)
         return discussion
 
     def _get_recent_lessons(self) -> str:
-        """Get recent learnings"""
+        """Get recent lessons learned"""
         if self.meta_cognition["lessons_learned"]:
             recent_lessons = self.meta_cognition["lessons_learned"][-3:]
             return "\n".join(recent_lessons)
-        return "No recent learnings"
+        return "No lessons learned yet"
 
     def react_to_news(self, news: str) -> str:
         """React to market news - Enhanced version"""
         system_prompt = f"""You are a {self.name}, please react to the following market news.
-Based on your trading experience and learning achievements, provide a rational response.
+Based on your trading experience and learning outcomes, give a rational reaction.
 Show the judgment you've gained through iterative learning."""
         
         user_prompt = f"""News: {news}
 
-Your holdings: {self.portfolio}
-Your strategy: {self.trading_strategy}
-Your learning progress: {self.learning_progress:.1%}
+Your Holdings: {self.portfolio}
+Your Strategy: {self.trading_strategy}
+Your Learning Progress: {self.learning_progress:.1%}
 
 Please share your views and possible actions, explaining your reasoning process:"""
         
@@ -545,26 +545,26 @@ Please share your views and possible actions, explaining your reasoning process:
         """Share trading experience - Enhanced version"""
         performance = self.get_performance_summary()
         
-        system_prompt = f"""You are a {self.name}, please share your trading experience and insights this week.
-You are an evolving trader who can learn from every trade.
+        system_prompt = f"""You are a {self.name}, after a week of stock trading, please share your trading experience and insights.
+You are a continuously evolving trader who can learn from each trade.
 Describe your growth journey and cognitive evolution in detail."""
         
-        user_prompt = f"""Please share your experience as a {self.name}:
+        user_prompt = f"""Please share your trading experience as a {self.name}:
 
-【Actual Performance Data】
-This week's return: {(self.weekly_returns[-1] if self.weekly_returns else 0):.2%}
-Total return: {performance['total_return']:.2%}
-Current portfolio value: {performance['current_portfolio_value']:.2f}
-Initial capital: {self.initial_capital:.2f}
-Current holdings: {self.portfolio}
-Learning progress: {self.learning_progress:.1%}
+【Real Performance Data】
+Weekly Return Rate: {(self.weekly_returns[-1] if self.weekly_returns else 0):.2%}
+Total Return Rate: {performance['total_return']:.2%}
+Current Portfolio Value: {performance['current_portfolio_value']:.2f}
+Initial Capital: {self.initial_capital:.2f}
+Current Holdings: {self.portfolio}
+Learning Progress: {self.learning_progress:.1%}
 
-【Iterative Learning Results】
-My growth journey: {self._describe_growth()}
-Mistakes I've corrected: {self._describe_mistakes()}
-The most important lessons I've learned: {self._describe_lessons()}
+【Iterative Learning Achievements】
+My Growth Journey: {self._describe_growth()}
+My Corrected Mistakes: {self._describe_mistakes()}
+My Most Important Lessons: {self._describe_lessons()}
 
-Please share your mindset, learning process, and self-improvement in detail:"""
+Please share your journey, learning process, and self-improvement in detail:"""
         
         experience = self.ai_client.generate_response(system_prompt, user_prompt)
         
@@ -585,15 +585,15 @@ Please share your mindset, learning process, and self-improvement in detail:"""
     def _describe_growth(self) -> str:
         """Describe growth journey"""
         if self.learning_progress > 0.7:
-            return "I've grown from a novice to an experienced trader, learning to control emotions and risks"
+            return "I've grown from a novice to an experienced trader, learning to control emotions and risk"
         elif self.learning_progress > 0.4:
             return "I'm learning quickly, gradually understanding market patterns"
         else:
-            return "I'm still in the exploration stage, accumulating experience"
+            return "I'm still in the exploration phase, accumulating experience"
     
     def _describe_mistakes(self) -> str:
         """Describe corrected mistakes"""
-        mistakes = ["Chasing rallies and selling on dips", "Emotional trading", "Ignoring risk management", "Overconfidence"]
+        mistakes = ["Chasing highs and selling lows", "Emotional trading", "Ignoring risk management", "Overconfidence"]
         if self.learning_progress > 0.5:
             learned_mistakes = random.sample(mistakes, 2)
             return f"I've corrected: {', '.join(learned_mistakes)}"
@@ -603,13 +603,13 @@ Please share your mindset, learning process, and self-improvement in detail:"""
             return "I'm still making various mistakes and need more learning"
     
     def _describe_lessons(self) -> str:
-        """Describe learned lessons"""
+        """Describe lessons learned"""
         lessons = [
             "Risk management is more important than returns",
             "Emotions are the biggest enemy in trading",
-            "Patience in waiting for the best timing",
-            "Diversification reduces risk",
-            "Learning from mistakes leads to progress"
+            "Patience to wait for the best timing",
+            "Diversify investments to reduce risk",
+            "Learning from mistakes is the only way to progress"
         ]
         return random.choice(lessons)
     
@@ -626,7 +626,7 @@ Please share your mindset, learning process, and self-improvement in detail:"""
     def learn_from_others(self, others_experiences: List[Dict]) -> str:
         """Learn from others' experiences - Enhanced version"""
         if not others_experiences:
-            return "No other traders shared experience this week"
+            return "No other traders shared experiences this week"
         
         experiences_text = "\n\n".join([
             f"{exp['name']}'s experience:\n{exp['experience']}" 
@@ -634,21 +634,21 @@ Please share your mindset, learning process, and self-improvement in detail:"""
         ])
         
         system_prompt = f"""You are a {self.name}, learning from other traders' experiences.
-You are a learning trader who can critically absorb others' experiences.
+You are a learning-capable trader who can critically absorb others' experiences.
 Combine others' experiences with your own to form deeper understanding."""
         
-        user_prompt = f"""Please analyze the following other traders' experience sharing, and engage in deep reflection and integration:
+        user_prompt = f"""Please analyze the following other traders' experience sharing, and conduct deep reflection and integration:
 
 {experiences_text}
 
-Your current strategy: {self.trading_strategy}
-Your this week's return: {self.weekly_returns[-1]:.2% if self.weekly_returns else '0%'}
-Your learning progress: {self.learning_progress:.1%}
+Your Current Strategy: {self.trading_strategy}
+Your Weekly Return: {self.weekly_returns[-1]:.2% if self.weekly_returns else '0%'}
+Your Learning Progress: {self.learning_progress:.1%}
 
 Please explain in detail:
-1. What new things have you learned from others' experiences?
-2. How will you integrate these experiences into your trading philosophy?
-3. Specifically, how will you improve your trading strategy?
+1. What new things did you learn from others' experiences?
+2. How to integrate these experiences into your trading philosophy?
+3. Specifically how to improve your trading strategy?
 4. What specific changes do you plan to make?"""
         
         learning = self.ai_client.generate_response(system_prompt, user_prompt)
@@ -688,28 +688,28 @@ Please explain in detail:
         performance = self.get_performance_summary()
         
         system_prompt = f"""You are a {self.name}, after a month of stock trading, please summarize your final trading experience and evolution journey.
-You are an intelligent trader evolving through iterative learning.
-Describe your cognitive evolution, strategy improvements, and mindset journey in detail."""
+You are an intelligent trader who continuously evolves through iterative learning.
+Describe your cognitive evolution, strategy improvements, and journey in detail."""
         
         user_prompt = f"""Please summarize your monthly trading experience as a {self.name}:
 
 【Final Performance】
-Final return rate: {performance['total_return']:.2%}
-Weekly returns: {[f'{r:.2%}' for r in self.weekly_returns]}
-Final portfolio value: {performance['current_portfolio_value']:.2f}
-Initial capital: {self.initial_capital:.2f}
-Final holdings: {self.portfolio}
-Final learning progress: {self.learning_progress:.1%}
+Final Return Rate: {performance['total_return']:.2%}
+Weekly Returns: {[f'{r:.2%}' for r in self.weekly_returns]}
+Final Portfolio Value: {performance['current_portfolio_value']:.2f}
+Initial Capital: {self.initial_capital:.2f}
+Final Holdings: {self.portfolio}
+Final Learning Progress: {self.learning_progress:.1%}
 
 【Iterative Learning Journey】
-Strategy evolution: {self.trading_strategy}
-Key learning milestones: {self._get_key_learnings()}
-Cognitive evolution: {self._describe_cognitive_evolution()}
+Strategy Evolution: {self.trading_strategy}
+Key Learning Milestones: {self._get_key_learnings()}
+Cognitive Evolution: {self._describe_cognitive_evolution()}
 
-Please provide a profound summary, including:
+Please provide a profound summary including:
 1. Your growth curve
-2. The most important cognitive breakthroughs
-3. The evolution process of your strategy
+2. Most important cognitive breakthroughs
+3. Strategy evolution process
 4. Thoughts on future trading philosophy"""
         
         final_summary = self.ai_client.generate_response(system_prompt, user_prompt)
@@ -727,7 +727,7 @@ Please provide a profound summary, including:
         return final_summary
     
     def _get_key_learnings(self) -> str:
-        """Get key learnings"""
+        """Get key learning points"""
         key_learnings = []
         for memory_item in self.memory[-5:]:
             if memory_item["type"] in ["learning", "experience_share"]:
@@ -738,48 +738,60 @@ Please provide a profound summary, including:
     def _describe_cognitive_evolution(self) -> str:
         """Describe cognitive evolution"""
         if self.learning_progress > 0.8:
-            return "From blind trading to rational analysis, establishing a complete trading system"
+            return "From blind trading to rational analysis, established a complete trading system"
         elif self.learning_progress > 0.5:
-            return "Starting to understand market patterns, learning emotion management and risk control"
+            return "Starting to understand market patterns, learned emotion management and risk control"
         elif self.learning_progress > 0.3:
             return "Learning from mistakes, gradually forming my own trading method"
         else:
-            return "Still in exploration and trial-error stage"
+            return "Still in exploration and trial-and-error phase"
     
     def _save_learning_models(self):
         """Save learning models"""
-        trader_folder = f"trader_{self.name}"
-        os.makedirs(trader_folder, exist_ok=True)
+        import os
+        
+        # Get the directory of the current code file
+        script_dir = os.path.dirname(os.path.abspath(__file__))
+        trader_name_safe = self.name.replace(" ", "_")
         
         # Save reinforcement learning model
-        self.rl_system.save_model(f"{trader_folder}/rl_model.json")
+        rl_model_path = os.path.join(script_dir, f"{trader_name_safe}_rl_model.json")
+        self.rl_system.save_model(rl_model_path)
         
         # Save strategy optimizer
-        with open(f"{trader_folder}/strategy_optimizer.json", 'w', encoding='utf-8') as f:
+        strategy_path = os.path.join(script_dir, f"{trader_name_safe}_strategy_optimizer.json")
+        with open(strategy_path, 'w', encoding='utf-8') as f:
             json.dump({
                 "strategy_performance": self.strategy_optimizer.strategy_performance,
                 "best_strategies": self.strategy_optimizer.best_strategies
             }, f, indent=2, ensure_ascii=False)
         
         # Save pattern recognizer
-        with open(f"{trader_folder}/pattern_recognizer.json", 'w', encoding='utf-8') as f:
+        pattern_path = os.path.join(script_dir, f"{trader_name_safe}_pattern_recognizer.json")
+        with open(pattern_path, 'w', encoding='utf-8') as f:
             json.dump({
                 "patterns": self.pattern_recognizer.patterns,
                 "pattern_history": self.pattern_recognizer.pattern_history[-50:]
             }, f, indent=2, ensure_ascii=False)
         
-        print(f"💾 {self.name}'s learning models saved")
+        print(f"💾 {self.name}'s learning models saved to code file directory: {script_dir}")
     
     def load_learning_models(self):
         """Load learning models"""
-        trader_folder = f"trader_{self.name}"
+        import os
+        
+        # Get the directory of the current code file
+        script_dir = os.path.dirname(os.path.abspath(__file__))
+        trader_name_safe = self.name.replace(" ", "_")
         
         # Load reinforcement learning model
-        self.rl_system.load_model(f"{trader_folder}/rl_model.json")
+        rl_model_path = os.path.join(script_dir, f"{trader_name_safe}_rl_model.json")
+        self.rl_system.load_model(rl_model_path)
         
         # Load strategy optimizer
+        strategy_path = os.path.join(script_dir, f"{trader_name_safe}_strategy_optimizer.json")
         try:
-            with open(f"{trader_folder}/strategy_optimizer.json", 'r', encoding='utf-8') as f:
+            with open(strategy_path, 'r', encoding='utf-8') as f:
                 data = json.load(f)
                 self.strategy_optimizer.strategy_performance = data.get("strategy_performance", {})
                 self.strategy_optimizer.best_strategies = data.get("best_strategies", {})
@@ -787,25 +799,26 @@ Please provide a profound summary, including:
             pass
         
         # Load pattern recognizer
+        pattern_path = os.path.join(script_dir, f"{trader_name_safe}_pattern_recognizer.json")
         try:
-            with open(f"{trader_folder}/pattern_recognizer.json", 'r', encoding='utf-8') as f:
+            with open(pattern_path, 'r', encoding='utf-8') as f:
                 data = json.load(f)
                 self.pattern_recognizer.patterns = data.get("patterns", {})
                 self.pattern_recognizer.pattern_history = data.get("pattern_history", [])
         except FileNotFoundError:
             pass
         
-        print(f"📖 {self.name}'s learning models loaded")
+        print(f"📖 {self.name}'s learning models loaded from code file directory: {script_dir}")
 
 
 class EmotionalTrader(BaseTrader):
-    """Emotional Investor - Enhanced Iterative Learning Capability"""
+    """Emotional Trader - Enhanced Iterative Learning Ability"""
     
     def __init__(self, trader_id: int):
         super().__init__(trader_id, "Emotional Investor")
         self.emotional_state = "neutral"
         self.risk_tolerance = random.uniform(0.6, 0.9)
-        self.trading_strategy = "Trading based on market sentiment and price volatility, easily influenced by market emotions"
+        self.trading_strategy = "Trade based on market sentiment and price volatility, easily influenced by market emotions"
         self.personality_traits.update({
             "emotional_volatility": random.uniform(0.7, 0.95),
             "herd_mentality": random.uniform(0.6, 0.9),
@@ -824,13 +837,13 @@ class EmotionalTrader(BaseTrader):
         """Make trading decisions - Simplified version, increased trading frequency"""
         decisions = []
         
-        # Base trading probability, higher on first day
+        # Base trade probability, higher on first day
         base_trade_prob = 0.3 if current_day == 0 else 0.2
         
-        # Adjust trading probability based on personality
+        # Adjust trade probability based on personality
         trade_prob = base_trade_prob * self.personality_traits["trade_frequency"]
         
-        # Adjust based on learning progress: more trading in early stages to accumulate experience
+        # Based on learning progress: more trades in early stages to accumulate experience
         if self.learning_progress < 0.3:
             trade_prob *= 1.5
         
@@ -840,7 +853,7 @@ class EmotionalTrader(BaseTrader):
             
             current_price = df.iloc[current_day]['afternoon_close']
             
-            # Simple random trading decisions
+            # Simple random trading decision
             if random.random() < trade_prob:
                 # Decide to buy or sell
                 if random.random() < 0.6:  # 60% probability to buy
@@ -856,10 +869,10 @@ class EmotionalTrader(BaseTrader):
         return decisions
     
     def analyze_trade_outcome(self, trade_decision: Dict, outcome: float):
-        """Analyze trade outcome and learn - Special version for Emotional Investor"""
+        """Analyze trade outcome and learn - Emotional trader special version"""
         super().analyze_trade_outcome(trade_decision, outcome)
         
-        # If emotional mistake, record it
+        # If it's an emotional mistake, record it
         if outcome < -0.05:
             mistake_record = {
                 "stock": trade_decision.get("stock", ""),
@@ -869,7 +882,7 @@ class EmotionalTrader(BaseTrader):
             }
             self.emotional_learning["mistake_memory"].append(mistake_record)
             
-            # Keep only last 10 mistakes
+            # Keep only the recent 10 mistakes
             if len(self.emotional_learning["mistake_memory"]) > 10:
                 self.emotional_learning["mistake_memory"] = self.emotional_learning["mistake_memory"][-10:]
         
@@ -881,12 +894,12 @@ class EmotionalTrader(BaseTrader):
 
 
 class RationalFundManager(BaseTrader):
-    """Rational Fund Manager - Enhanced Iterative Learning Capability"""
+    """Rational Fund Manager - Enhanced Iterative Learning Ability"""
     
     def __init__(self, trader_id: int):
         super().__init__(trader_id, "Rational Fund Manager")
         self.analysis_depth = random.uniform(0.7, 0.95)
-        self.trading_strategy = "Rational investment decisions based on fundamental analysis and technical analysis"
+        self.trading_strategy = "Rational investment decisions based on fundamental and technical analysis"
         self.personality_traits.update({
             "analytical": random.uniform(0.8, 0.95),
             "patience": random.uniform(0.7, 0.9),
@@ -905,7 +918,7 @@ class RationalFundManager(BaseTrader):
         """Make trading decisions - Simplified version, increased trading frequency"""
         decisions = []
         
-        # Base trading probability
+        # Base trade probability
         base_trade_prob = 0.25
         
         # Adjust based on personality: rational investors trade more cautiously
@@ -927,18 +940,18 @@ class RationalFundManager(BaseTrader):
                 price_change = (recent_prices.iloc[-1] - recent_prices.iloc[0]) / recent_prices.iloc[0]
                 
                 # Trend trading logic
-                if price_change > 0.01 and random.random() < trade_prob:  # Uptrend
+                if price_change > 0.01 and random.random() < trade_prob:  # Upward trend
                     if self.cash > current_price * 8:
                         shares = random.randint(2, 6)
                         decisions.append({"action": "buy", "stock": stock, "shares": shares, "price": current_price})
                 
-                elif price_change < -0.01 and stock in self.portfolio and random.random() < trade_prob:  # Downtrend
+                elif price_change < -0.01 and stock in self.portfolio and random.random() < trade_prob:  # Downward trend
                     shares = min(random.randint(1, 4), self.portfolio[stock])
                     if shares > 0:
                         decisions.append({"action": "sell", "stock": stock, "shares": shares, "price": current_price})
             
             else:
-                # Random exploration in first few days
+                # Random exploration in early days
                 if random.random() < trade_prob * 1.5:
                     if self.cash > current_price * 10:
                         shares = random.randint(1, 3)
@@ -947,7 +960,7 @@ class RationalFundManager(BaseTrader):
         return decisions
     
     def analyze_trade_outcome(self, trade_decision: Dict, outcome: float):
-        """Analyze trade outcome and learn - Special version for Rational Fund Manager"""
+        """Analyze trade outcome and learn - Rational fund manager special version"""
         super().analyze_trade_outcome(trade_decision, outcome)
         
         # Update analytical model accuracy
@@ -964,12 +977,12 @@ class RationalFundManager(BaseTrader):
 
 
 class InformedTrader(BaseTrader):
-    """Informed Trader - Enhanced Iterative Learning Capability"""
+    """Informed Trader - Enhanced Iterative Learning Ability"""
     
     def __init__(self, trader_id: int):
         super().__init__(trader_id, "Informed Trader")
         self.insider_info = {}
-        self.trading_strategy = "Trading using informational advantages, knowing certain stock trends in advance"
+        self.trading_strategy = "Trade using information advantage, knowing certain stock trends in advance"
         self.personality_traits.update({
             "secretive": random.uniform(0.7, 0.9),
             "opportunistic": random.uniform(0.8, 0.95),
@@ -986,7 +999,7 @@ class InformedTrader(BaseTrader):
     
     def set_insider_info(self, stock_data: Dict[str, pd.DataFrame]):
         """Set insider information - Simplified version"""
-        # Select 1-2 stocks for insider information
+        # Select 1-2 stocks to set insider information
         stocks_with_info = random.sample(list(stock_data.keys()), random.randint(1, 2))
         
         for stock in stocks_with_info:
@@ -1007,7 +1020,7 @@ class InformedTrader(BaseTrader):
         """Make trading decisions - Simplified version, increased trading frequency"""
         decisions = []
         
-        # Base trading probability (informed traders are more active)
+        # Base trade probability (informed traders are more active)
         base_trade_prob = 0.35
         
         # Adjust based on personality
@@ -1023,7 +1036,7 @@ class InformedTrader(BaseTrader):
             
             current_price = df.iloc[current_day]['afternoon_close']
             
-            # 1. First check for insider information
+            # 1. First check insider information
             if stock in self.insider_info:
                 info = self.insider_info[stock]
                 
@@ -1031,7 +1044,7 @@ class InformedTrader(BaseTrader):
                     if info['direction'] == 'up' and self.cash > current_price * 10:
                         shares = random.randint(3, 8)
                         decisions.append({"action": "buy", "stock": stock, "shares": shares, "price": current_price})
-                        continue  # Trade with insider information, skip other logic
+                        continue  # Trade if insider information exists, don't execute other logic
                     
                     elif info['direction'] == 'down' and stock in self.portfolio:
                         shares = min(random.randint(3, 6), self.portfolio[stock])
@@ -1039,7 +1052,7 @@ class InformedTrader(BaseTrader):
                             decisions.append({"action": "sell", "stock": stock, "shares": shares, "price": current_price})
                         continue
             
-            # 2. Regular trading without insider information
+            # 2. Regular trading when no insider information
             if random.random() < trade_prob:
                 if random.random() < 0.55:  # 55% probability to buy
                     if self.cash > current_price * 12:
@@ -1054,7 +1067,7 @@ class InformedTrader(BaseTrader):
         return decisions
     
     def analyze_trade_outcome(self, trade_decision: Dict, outcome: float):
-        """Analyze trade outcome and learn - Special version for Informed Trader"""
+        """Analyze trade outcome and learn - Informed trader special version"""
         super().analyze_trade_outcome(trade_decision, outcome)
         
         stock = trade_decision.get("stock", "")
@@ -1063,7 +1076,7 @@ class InformedTrader(BaseTrader):
         if stock in self.insider_info:
             info = self.insider_info[stock]
             
-            # Check accuracy of insider information
+            # Check insider information accuracy
             if outcome > 0 and info['direction'] == 'up':
                 # Success, increase information reliability
                 self.info_network["info_reliability"] = min(
@@ -1106,8 +1119,8 @@ class TradingSimulation:
     def _generate_market_news(self) -> List[Dict]:
         """Generate market news"""
         return [
-            {"day": 5, "news": "Federal Reserve announces maintaining interest rates unchanged, market expectations stable"},
-            {"day": 12, "news": "Tech stock earnings season approaching, multiple companies exceed performance expectations"},
+            {"day": 5, "news": "Federal Reserve announces keeping interest rates unchanged, market expectations stable"},
+            {"day": 12, "news": "Tech earnings season arrives, multiple companies exceed expectations"},
             {"day": 18, "news": "International oil prices fluctuate significantly, energy sector affected"},
             {"day": 25, "news": "Regulatory policies tighten, some industries face adjustments"}
         ]
@@ -1185,11 +1198,11 @@ class TradingSimulation:
                     print(f"   ✅ {trader.name} sold {shares} shares of {stock} @ {price:.2f}")
     
     def analyze_trade_outcomes(self, day_trades: Dict[str, List[Dict]], current_day: int):
-        """Analyze trade outcomes and enable agent learning"""
+        """Analyze trade outcomes and let agents learn"""
         if current_day == 0:
             return
         
-        # Get next day's prices for calculating returns
+        # Get next day's prices to calculate returns
         if current_day >= len(list(self.stock_data.values())[0]):
             return
         
@@ -1216,12 +1229,12 @@ class TradingSimulation:
                         # Buying profit is next day's price change
                         profit = (next_price - price) / price
                     elif action == "sell":
-                        # Selling profit is avoided loss (assuming holding until next day if not sold)
+                        # Selling profit is avoided loss (assuming would hold until next day if not sold)
                         profit = (price - next_price) / price  # Note: this is avoided loss
                     else:
                         profit = 0
                     
-                    # Enable agent to learn from trade outcomes
+                    # Let agent learn from trade outcome
                     trader.analyze_trade_outcome(trade, profit)
     
     def run_market_commentary(self, current_day: int):
@@ -1237,7 +1250,7 @@ class TradingSimulation:
         commentators = sorted(self.traders, key=lambda x: x.learning_progress, reverse=True)[:2]
         for trader in commentators:
             if random.random() < trader.personality_traits["talkativeness"]:
-                print(f"\n{trader.name} (Learning progress: {trader.learning_progress:.1%}) provides market commentary:")
+                print(f"\n{trader.name} (Learning progress: {trader.learning_progress:.1%}) comments on the market:")
                 commentary = trader.generate_market_commentary(market_data)
                 print(f"{trader.name}: {commentary}")
                 
@@ -1256,8 +1269,8 @@ class TradingSimulation:
         print(f"\n💬 Week {week} in-depth strategy discussion")
         
         discussion_topics = [
-            "Experience of learning from mistakes",
-            "Key milestones in strategy evolution", 
+            "Experience learning from mistakes",
+            "Key milestones in strategy evolution",
             "How to balance risk and return",
             "Iterative process of market cognition"
         ]
@@ -1361,11 +1374,11 @@ class TradingSimulation:
         low_learners = [t for t in self.traders if t.learning_progress <= 0.5]
         
         for learner in low_learners:
-            # Let low learning progress learn from high learning progress
+            # Let low learning progress traders learn from high learning progress traders
             if high_learners:
                 teacher_experiences = [exp for exp in experiences if exp["name"] in [h.name for h in high_learners]]
                 if teacher_experiences:
-                    print(f"{learner.name} (Learning progress: {learner.learning_progress:.1%}) is learning from experts...")
+                    print(f"{learner.name} (Learning progress: {learner.learning_progress:.1%}) is learning from masters...")
                     
                     learning = learner.learn_from_others(teacher_experiences)
                     self.conversation_log.append({
@@ -1384,13 +1397,13 @@ class TradingSimulation:
         """Run complete simulation (supports multiple rounds)"""
         for round_num in range(rounds):
             self.simulation_round = round_num + 1
-            print(f"\n🎯 Starting round {self.simulation_round} stock trading simulation...")
+            print(f"\n🎯 Starting round {self.simulation_round} of stock trading simulation...")
             
             if round_num > 0:
-                # New simulation round, maintain learning state but reset some data
-                print("🔄 Starting new simulation round, preserving learning results...")
+                # New round simulation, maintain learning state but reset some data
+                print("🔄 Starting new simulation round, preserving learning achievements...")
                 for trader in self.traders:
-                    # Reset cash and portfolio, but maintain learning models
+                    # Reset cash and holdings, but keep learning models
                     trader.cash = trader.initial_capital
                     trader.portfolio = {}
                     trader.weekly_returns = []
@@ -1432,7 +1445,7 @@ class TradingSimulation:
                             trade_count += len(decisions)
                             self.execute_trades(decisions, trader)
                     
-                    print(f"🤝 Completed {trade_count} trades today")
+                    print(f"🤝 Today completed {trade_count} trades")
                     
                     # Analyze trade outcomes and learn
                     self.analyze_trade_outcomes(day_trades, current_day)
@@ -1446,7 +1459,7 @@ class TradingSimulation:
                     performance = trader.get_performance_summary()
                     print(f"   {trader.name}: Weekly return {weekly_return:+.2%}, Total return {performance['total_return']:+.2%}, Learning progress {trader.learning_progress:.1%}")
                 
-                # Strategy discussion (weekly)
+                # Strategy discussion (once per week)
                 self.run_strategy_discussion(week + 1)
                 
                 # Weekly discussion and learning
@@ -1476,7 +1489,7 @@ class TradingSimulation:
     
     def run_final_summary(self):
         """Run final summary"""
-        print("\n🎊 Monthly trading simulation completed!")
+        print("\n🎊 Monthly trading simulation complete!")
         print("\n📈 Final performance report:")
         
         final_returns = {}
@@ -1490,7 +1503,7 @@ class TradingSimulation:
             learning_progresses[trader.name] = trader.learning_progress
             
             print(f"\n{trader.name}:")
-            print(f"  Total return: {final_return:.2%}")
+            print(f"  Total return rate: {final_return:.2%}")
             print(f"  Learning progress: {trader.learning_progress:.1%}")
             print(f"  Final cash: {trader.cash:.2f}")
             print(f"  Final holdings: {trader.portfolio}")
@@ -1529,10 +1542,10 @@ class TradingSimulation:
         best_trader = max(combined_scores.items(), key=lambda x: x[1])
         print(f"\n🏆 This month's best trader: {best_trader[0]} (Combined score: {best_trader[1]:.2f})")
         
-        # Learning progress award
+        # Most improved learner award
         learning_improvement = {name: learning_progresses[name] for name in learning_progresses}
         most_improved = max(learning_improvement.items(), key=lambda x: x[1])
-        print(f"📚 Most learning progress: {most_improved[0]} (Learning progress: {most_improved[1]:.1%})")
+        print(f"📚 Most improved learner: {most_improved[0]} (Learning progress: {most_improved[1]:.1%})")
         
         # Save learning summary
         self.save_learning_summary(final_summaries)
@@ -1542,6 +1555,11 @@ class TradingSimulation:
     
     def save_learning_summary(self, final_summaries: List[Dict]):
         """Save learning summary"""
+        import os
+        
+        # Get the directory of the current code file
+        script_dir = os.path.dirname(os.path.abspath(__file__))
+        
         # Update cumulative learning data
         if "rounds" not in self.cumulative_learning:
             self.cumulative_learning["rounds"] = []
@@ -1563,13 +1581,20 @@ class TradingSimulation:
         self.cumulative_learning["rounds"].append(round_summary)
         
         # Save to file
-        with open("cumulative_learning.json", "w", encoding="utf-8") as f:
+        summary_path = os.path.join(script_dir, "cumulative_learning.json")
+        with open(summary_path, "w", encoding="utf-8") as f:
             json.dump(self.cumulative_learning, f, indent=2, ensure_ascii=False)
     
     def save_results(self, final_summaries: List[Dict]):
         """Save results to files"""
+        import os
+        
+        # Get the directory of the current code file
+        script_dir = os.path.dirname(os.path.abspath(__file__))
+        
         # Save conversation log
-        with open(f"trading_conversations_round_{self.simulation_round}.json", "w", encoding="utf-8") as f:
+        conversation_path = os.path.join(script_dir, f"trading_conversations_round_{self.simulation_round}.json")
+        with open(conversation_path, "w", encoding="utf-8") as f:
             json.dump(self.conversation_log, f, indent=2, ensure_ascii=False)
         
         # Save agent memory
@@ -1581,7 +1606,7 @@ class TradingSimulation:
                 "learning_progress": trader.learning_progress,
                 "current_portfolio_value": performance['current_portfolio_value'],
                 "initial_capital": trader.initial_capital,
-                "memory": trader.memory[-20:],  # Keep only last 20 memories
+                "memory": trader.memory[-20:],  # Only save recent 20 memories
                 "trading_strategy": trader.trading_strategy,
                 "final_portfolio": trader.portfolio,
                 "final_cash": trader.cash,
@@ -1590,14 +1615,16 @@ class TradingSimulation:
                 "meta_cognition": trader.meta_cognition
             }
         
-        with open(f"trading_experience_memory_round_{self.simulation_round}.json", "w", encoding="utf-8") as f:
+        memory_path = os.path.join(script_dir, f"trading_experience_memory_round_{self.simulation_round}.json")
+        with open(memory_path, "w", encoding="utf-8") as f:
             json.dump(memory_data, f, indent=2, ensure_ascii=False)
         
         # Save performance history
-        with open(f"trading_performance_round_{self.simulation_round}.json", "w", encoding="utf-8") as f:
+        performance_path = os.path.join(script_dir, f"trading_performance_round_{self.simulation_round}.json")
+        with open(performance_path, "w", encoding="utf-8") as f:
             json.dump(self.performance_history, f, indent=2, ensure_ascii=False)
         
-        print("✅ All results saved to JSON files!")
+        print(f"✅ All results saved to JSON files! (Directory: {script_dir})")
 
 
 def main():
@@ -1606,7 +1633,7 @@ def main():
     parser.add_argument('--days', type=int, default=30, help='Simulation days')
     parser.add_argument('--weeks', type=int, default=4, help='Simulation weeks')
     parser.add_argument('--rounds', type=int, default=1, help='Simulation rounds')
-    parser.add_argument('--fast', action='store_true', help='Fast mode (reduce dialogue)')
+    parser.add_argument('--fast', action='store_true', help='Fast mode (reduced conversation)')
     parser.add_argument('--reset-learning', action='store_true', help='Reset learning models')
     
     args = parser.parse_args()
@@ -1615,13 +1642,13 @@ def main():
         print("❌ Please set DEEPSEEK_API_KEY environment variable")
         return
     
-    print("🧠 Starting iterative learning stock trading simulation system")
+    print("🧠 Starting Iterative Learning Stock Trading Simulation System")
     print("=" * 50)
-    print("Special features:")
-    print("1. Reinforcement Learning - Agents learn from every trade")
-    print("2. Strategy Optimization - Dynamically adjusts trading strategies")
-    print("3. Pattern Recognition - Learns to recognize market patterns")
-    print("4. Metacognition - Agents understand their strengths and weaknesses")
+    print("Special Features:")
+    print("1. Reinforcement Learning - Agents learn from each trade")
+    print("2. Strategy Optimization - Dynamically adjust trading strategies")
+    print("3. Pattern Recognition - Learn to recognize market patterns")
+    print("4. Metacognition - Agents understand their own strengths and weaknesses")
     print("5. Multi-round Iteration - Agents become smarter over time")
     print("=" * 50)
     
@@ -1629,13 +1656,13 @@ def main():
     simulation.initialize_simulation(load_previous_learning=not args.reset_learning)
     
     if args.fast:
-        print("⚡ Fast mode: Simplified dialogue process")
-        # Can add simplified logic here
+        print("⚡ Fast mode: Simplified conversation process")
+        # Can add simplification logic here
     
     simulation.run_simulation(rounds=args.rounds)
     
-    print("\n🎯 Simulation completed!")
-    print("Agents' learning models saved, will continue learning next run")
+    print("\n🎯 Simulation complete!")
+    print("Agents' learning models have been saved and will continue learning next time")
 
 
 if __name__ == "__main__":
