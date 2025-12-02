@@ -1,0 +1,58 @@
+[
+  {
+    "round": 1,
+    "week": 1,
+    "returns": {
+      "Emotional Investor": -0.004095699999999779,
+      "Rational Fund Manager": -0.0030080999999996857,
+      "Informed Trader": -0.00452429999999993
+    },
+    "learning_progress": {
+      "Emotional Investor": 0.024043168040454675,
+      "Rational Fund Manager": 0.052462459779545265,
+      "Informed Trader": 0.03986951516619293
+    }
+  },
+  {
+    "round": 1,
+    "week": 2,
+    "returns": {
+      "Emotional Investor": -0.004779575708228336,
+      "Rational Fund Manager": 0.005384798010896436,
+      "Informed Trader": -0.00045264791496163763
+    },
+    "learning_progress": {
+      "Emotional Investor": 0.06715504384137665,
+      "Rational Fund Manager": 0.08324544083689436,
+      "Informed Trader": 0.057363238792394494
+    }
+  },
+  {
+    "round": 1,
+    "week": 3,
+    "returns": {
+      "Emotional Investor": -0.010654351742727929,
+      "Rational Fund Manager": 0.006188691593493429,
+      "Informed Trader": -0.005326096798965089
+    },
+    "learning_progress": {
+      "Emotional Investor": 0.1123677221458281,
+      "Rational Fund Manager": 0.10497050153001238,
+      "Informed Trader": 0.13301222219455344
+    }
+  },
+  {
+    "round": 1,
+    "week": 4,
+    "returns": {
+      "Emotional Investor": -0.014131166489204669,
+      "Rational Fund Manager": -0.0160438040706993,
+      "Informed Trader": -0.023080237904348197
+    },
+    "learning_progress": {
+      "Emotional Investor": 0.16599010222873342,
+      "Rational Fund Manager": 0.18946933968353602,
+      "Informed Trader": 0.1705764735613188
+    }
+  }
+]
