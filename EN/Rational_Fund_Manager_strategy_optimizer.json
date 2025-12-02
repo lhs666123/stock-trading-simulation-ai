@@ -1,0 +1,81 @@
+{
+  "strategy_performance": {
+    "Rational Fund Manager_buy_META": [
+      -0.01009736747205203,
+      -0.016281153977466704
+    ],
+    "Rational Fund Manager_buy_AMD": [
+      -0.0013218310839014729,
+      -0.006097802415363375,
+      -0.009123347660368177
+    ],
+    "Rational Fund Manager_buy_AAPL": [
+      0.01227633331403095,
+      -0.03829872432927174,
+      0.00029741545965549144
+    ],
+    "Rational Fund Manager_buy_MSFT": [
+      -0.03341532185494027,
+      -0.0001881231579607521
+    ],
+    "Rational Fund Manager_buy_TSLA": [
+      0.03427013985076622,
+      -0.007300846725419034,
+      0.010706260739304784,
+      -0.02762871038068088
+    ],
+    "Rational Fund Manager_buy_NVDA": [
+      0.009560271275432082,
+      0.018007671137885334
+    ],
+    "Rational Fund Manager_buy_INTC": [
+      0.007476284902727961,
+      -0.028193738862143315,
+      0.03467211375212222,
+      0.014708056171470873,
+      0.0013684649997681307,
+      0.01850693720612422
+    ],
+    "Rational Fund Manager_buy_GOOGL": [
+      0.0011153712094808298,
+      0.04094422393983702,
+      -0.058055256548259805
+    ],
+    "Rational Fund Manager_sell_AMZN": [
+      -0.009806759788666268,
+      0.02106181928579565
+    ],
+    "Rational Fund Manager_sell_META": [
+      0.005129104379466116
+    ],
+    "Rational Fund Manager_sell_MSFT": [
+      0.0043555106678449555,
+      -0.03046076730287244
+    ],
+    "Rational Fund Manager_sell_GOOGL": [
+      0.03172413793103444,
+      -0.029922423346878547,
+      0.0809640072458061
+    ],
+    "Rational Fund Manager_buy_NFLX": [
+      -0.04135113591072146,
+      -0.05227673477854986
+    ],
+    "Rational Fund Manager_sell_AAPL": [
+      -0.004412784466998784,
+      0.017065639629469723
+    ],
+    "Rational Fund Manager_sell_NVDA": [
+      -0.012520498737538074,
+      0.018711394825937533
+    ],
+    "Rational Fund Manager_sell_AMD": [
+      -0.025779905109795588,
+      -0.04396054193442761
+    ],
+    "Rational Fund Manager_sell_INTC": [
+      0.042799910418792116
+    ]
+  },
+  "best_strategies": {}
+}
