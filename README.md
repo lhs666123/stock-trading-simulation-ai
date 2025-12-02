@@ -171,7 +171,33 @@ graph TD
     
     D --> E[💰 Get Returns]
     E --> F[🧠 Learn & Improve]
+
  ```
+
+## 📅Timeline Flowchart
+```mermaid
+gantt
+    title Stock Trading Simulation Timeline (30 Days)
+    dateFormat DD
+    axisFormat %m/%d
+    
+    section Initialization
+    Generate Data : 01, 1d
+    Create Traders : 01, 1d
+    
+    section Weekly Cycle
+    Week 1 Trading : 02, 7d
+    Week 1 Learning : after Week 1 Trading, 1d
+    Week 2 Trading : after Week 1 Learning, 7d
+    Week 2 Learning : after Week 2 Trading, 1d
+    Week 3 Trading : after Week 2 Learning, 7d
+    Week 3 Learning : after Week 3 Trading, 1d
+    Week 4 Trading : after Week 3 Learning, 7d
+    
+    section Summary
+    Final Evaluation : after Week 4 Trading, 2d
+ ```
+
 ## 🚀 Quick Start
 
 ### 1. Install Dependencies
