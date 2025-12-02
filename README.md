@@ -109,6 +109,42 @@ stock-trading-simulation/
     AF -->|Yes| D
     AF -->|No| AG[🏁 Simulation Complete]
 ```
+##🔄 Simplified Core Flowchart
+```mermaid
+graph TD
+    A[🚀 Start Simulation] --> B[📊 Generate Data]
+    A --> C[🤖 Create 3 AI Traders]
+    A --> D[💾 Load Models]
+    
+    B --> E{4 Weeks Loop}
+    
+    E --> F[📅 Weekly Trading]
+    F --> G{7.5 Days Loop}
+    
+    G --> H[📢 Commentary]
+    G --> I[📰 News Reaction]
+    G --> J[🤝 Execute Trades]
+    
+    J --> K[🎭 Emotional]
+    J --> L[🧠 Rational]
+    J --> M[🕵️ Insider]
+    
+    J --> N[📈 Calculate Profit]
+    N --> O[🧠 Reinforcement Learning]
+    
+    E --> P[📊 Weekly Summary]
+    P --> Q[💬 Strategy Discussion]
+    P --> R[🗣️ Experience Sharing]
+    
+    E --> S[💾 Save Progress]
+    
+    S --> T{Continue?}
+    T -->|Yes| E
+    T -->|No| U[🎉 Complete]
+    
+    U --> V[🏆 Best Trader]
+    U --> W[📋 Generate Reports]
+```
 ## 🚀 Quick Start
 
 ### 1. Install Dependencies
