@@ -197,7 +197,33 @@ gantt
     section Summary
     Final Evaluation : after Week 4 Trading, 2d
  ```
-
+ ## 🧠 Learning Cycle Flowchart
+ ```mermaid
+ graph LR
+    A[📊 Trade Result] --> B[🧠 Analyze Profit]
+    B --> C[⚡ Q-learning Update]
+    B --> D[⚙️ Optimize Strategy]
+    B --> E[🔍 Recognize Pattern]
+    
+    C --> F[💾 Save Experience]
+    D --> F
+    E --> F
+    
+    F --> G[🔄 Better Next Decision]
+ ```
+ ## 📁 Output Files Flowchart
+  ```mermaid
+  graph LR
+    A[🚀 Run Simulation] --> B[📊 Stock Data]
+    A --> C[💾 Trade Records]
+    A --> D[🧠 Learning Models]
+    
+    B --> E[stock_database.json]
+    C --> F[trading_conversations.json]
+    C --> G[trading_experience_memory.json]
+    D --> H[trader_*/rl_model.json]
+ ```
+ 
 ## 🚀 Quick Start
 
 ### 1. Install Dependencies
