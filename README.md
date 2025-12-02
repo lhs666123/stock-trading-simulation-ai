@@ -18,16 +18,22 @@ stock-trading-simulation/
 ├── stock_simulation.py      # ⭐ Main simulation file (complete system)
 ├── requirements.txt         # Python dependencies
 ├── README.md               # Documentation
-├── .env.example            # Environment variables template
-├── trader_*/               # Individual trader learning models
-│   ├── rl_model.json       # Reinforcement learning Q-table
-│   ├── strategy_optimizer.json  # Strategy performance data
-│   └── pattern_recognizer.json  # Market pattern recognition data
-├── stock_database.json     # Generated stock market data
-└── output_files/           # Simulation results
-    ├── trading_conversations_round_X.json
-    ├── trading_experience_memory_round_X.json
-    └── trading_performance_round_X.json
+├── .env                    # Environment variables template
+(Logs below will generate after running)
+├── cumulative_learning.json
+├── trading_conversations_round_1.json
+├── trading_experience_memory_round_1.json
+├── trading_performance_round_1.json
+├── Rational_Fund_Manager_pattern_recognizer.json
+├── Rational_Fund_Manager_rl_model.json
+├── Rational_Fund_Manager_strategy_optimizer.json
+├── Emotional_Investor_pattern_recognizer.json
+├── Emotional_Investor_rl_model.json
+├── Emotional_Investor_strategy_optimizer.json
+├── Insider_Trader_pattern_recognizer.json
+├── Insider_Trader_rl_model.json
+├── Insider_Trader_strategy_optimizer.json
+
 ```
 
 ## 📈 Stock Trading Simulation System Flowchart
@@ -223,7 +229,7 @@ gantt
     C --> G[trading_experience_memory.json]
     D --> H[trader_*/rl_model.json]
  ```
- 
+
 ## 🚀 Quick Start
 
 ### 1. Install Dependencies
@@ -366,27 +372,56 @@ python stock_simulation.py --reset-learning
 
 ```
 ================================================================================
-                            📅 Week 1 Trading (Round 1)
+                            📅 Week 4 Trading (Round 1)
 ================================================================================
 
---- Day 1 ---
+--- Day 28 ---
 
-📢 Day 1 Market Commentary
+📢 Day 28 Market Commentary
 
-情绪投资者 (学习进度: 0.0%) 发表市场评论:
-情绪投资者: 作为一个情绪投资者，我看到市场波动就兴奋...
+Insider Trader (Learning Progress: 41.3%) Market Commentary:
+Insider Trader: (Looking at TSLA position out of control to 36 shares) The market is punishing my core cognitive flaw: **Treating information advantage as risk control exemption**.
 
-💰 Week 1 Returns:
-   情绪投资者: 周收益 +1.23%, 总收益 +1.23%, 学习进度 5.2%
-   理性基金经理: 周收益 +0.89%, 总收益 +0.89%, 学习进度 3.8%
-   信息泄露者: 周收益 +2.45%, 总收益 +2.45%, 学习进度 8.1%
+From the painful lesson of -55.13% loss, I've distilled three survival rules:
 
+1. **Information overload inevitably leads to position loss**: Current tech stock concentration has reached 98%, completely violating the risk diversification principles established at 41.3% learning progress
+
+2. **Loss distorts information processing**: To "justify" TSLA holdings, I selectively amplified positive news while ignoring regulatory risk signals
+
+3. **Emergency action plan**:
+   - Immediately activate circuit breaker: Force close 50% of positions
+   - Build absolute return portfolio: 70% cash + 30% market neutral strategy
+   - Implement information detox: Only receive public earnings data for the next week
+
+Market truth: When losses exceed -50%, any information advantage becomes ineffective. The real turning point isn't finding more information, but **admitting the information processing system has collapsed**.
+
+Emotional Investor (Learning Progress: 25.4%) Market Commentary:
+Emotional Investor: (Staring at -40.12% return, suddenly laughs) The market finally taught me the most important lesson: **Losses are the best risk education, and deep losses are PhD-level courses**. Current positions appear chaotic but actually contain three evolutions:
+
+1. **Adding META to 17 shares** isn't bottom fishing, but verifying the "extreme emotion reversal model" - when retail panic index and institutional holdings diverge to historical extremes, my backtesting shows 68% win rate over the next 30 days. This cognitive lesson cost -23% tuition.
+
+2. **Increasing MSFT from 2 to 6 shares** is "cognitive hedging": Discovering that I instinctively avoid office software stocks during tech declines is itself a bias that needs correction.
+
+3. Most ironically, **after returns fell below -40%, my emotional volatility actually decreased 37%** - The market bought out my "break-even fantasy" with real money, now I can purely think about probabilities. The current market isn't about direction, but about volatility structure: The options market is pricing a kind of "calm panic," a state that often breeds the most violent directional choices. My positions aren't betting on direction, but building positions for "cognitive leaps".
+   ✅ Emotional Investor bought 5 shares of NVDA @ 549.01
+   ✅ Emotional Investor bought 3 shares of INTC @ 374.40
+   ✅ Insider Trader bought 5 shares of GOOGL @ 432.71
+   ✅ Insider Trader sold 3 shares of AMD @ 424.09
+🤝 Completed 4 trades today
+
+💰 Week 4 Returns:
+   Emotional Investor: Weekly return +0.70%, Total return -43.98%, Learning progress 27.0%
+   Rational Fund Manager: Weekly return +0.00%, Total return -11.21%, Learning progress 4.0%
+   Insider Trader: Weekly return -0.64%, Total return -56.02%, Learning progress 42.0%
+
+💬 Week 4 Strategy Discussion
+...hidden...
 ================================================================================
                               ✅ Simulation Complete
 ================================================================================
 
-🏆 Monthly Best Trader: 信息泄露者 (综合得分: 0.82)
-📚 Most Learning Progress: 情绪投资者 (学习进度: 35.6%)
+🏆 Monthly Best Trader: Insider Trader (Composite score: 0.82)
+📚 Most Learning Progress: Emotional Investor (Learning progress: 35.6%)
 
 ✅ All results saved to JSON files!
 💾 Trader learning models saved for next round
