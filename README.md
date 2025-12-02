@@ -171,7 +171,7 @@ graph TD
     
     D --> E[💰 Get Returns]
     E --> F[🧠 Learn & Improve]
-    ```
+ ```
 ## 🚀 Quick Start
 
 ### 1. Install Dependencies
