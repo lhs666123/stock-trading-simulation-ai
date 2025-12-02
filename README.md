@@ -111,7 +111,7 @@ stock-trading-simulation/
 ```
 
 ```mermaid
-graph TD
+    graph TD
     title🔄 Simplified Core Flowchart
     A[🚀 Start Simulation] --> B[📊 Generate Data]
     A --> C[🤖 Create 3 AI Traders]
