@@ -146,6 +146,32 @@ stock-trading-simulation/
     U --> V[🏆 Best Trader]
     U --> W[📋 Generate Reports]
 ```
+
+## 🎭 Three AI Trader Types
+```mermaid
+graph TD
+    subgraph "🎭 Emotional Investor"
+        A1[😄 Feel Market Sentiment] --> A2[🐑 Follow the Crowd]
+        A2 --> A3[⚡ Impulsive Trading]
+    end
+    
+    subgraph "🧠 Rational Manager"
+        B1[📊 Analyze Data] --> B2[📈 Technical Indicators]
+        B2 --> B3[⚖️ Rational Decisions]
+    end
+    
+    subgraph "🕵️ Insider Trader"
+        C1[🔍 Check Insider Info] --> C2[⚡ Information Advantage]
+        C2 --> C3[🎯 Precise Trading]
+    end
+    
+    A3 --> D[🤝 Execute Trades]
+    B3 --> D
+    C3 --> D
+    
+    D --> E[💰 Get Returns]
+    E --> F[🧠 Learn & Improve]
+    ```
 ## 🚀 Quick Start
 
 ### 1. Install Dependencies
