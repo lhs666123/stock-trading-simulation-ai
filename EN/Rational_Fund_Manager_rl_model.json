@@ -1,0 +1,58 @@
+{
+  "{\"action\": \"buy\", \"market_condition\": \"unknown\", \"stock\": \"META\", \"trader_confidence\": 0.32480561322301155}": {
+    "buy_small": -0.2632803461215848
+  },
+  "{\"action\": \"buy\", \"market_condition\": \"unknown\", \"stock\": \"AMD\", \"trader_confidence\": 0.32480561322301155}": {
+    "buy_small": -0.1649930688249429
+  },
+  "{\"action\": \"buy\", \"market_condition\": \"unknown\", \"stock\": \"AAPL\", \"trader_confidence\": 0.32480561322301155}": {
+    "buy_small": -0.256559383587464
+  },
+  "{\"action\": \"buy\", \"market_condition\": \"unknown\", \"stock\": \"MSFT\", \"trader_confidence\": 0.32480561322301155}": {
+    "buy_small": -0.3343636840362632
+  },
+  "{\"action\": \"buy\", \"market_condition\": \"unknown\", \"stock\": \"TSLA\", \"trader_confidence\": 0.32480561322301155}": {
+    "buy_small": 0.2679794242609336,
+    "buy_medium": -0.1315604710739672
+  },
+  "{\"action\": \"buy\", \"market_condition\": \"unknown\", \"stock\": \"NVDA\", \"trader_confidence\": 0.32480561322301155}": {
+    "buy_small": 0.27520141056940256
+  },
+  "{\"action\": \"buy\", \"market_condition\": \"unknown\", \"stock\": \"INTC\", \"trader_confidence\": 0.32480561322301155}": {
+    "buy_small": -0.008647572569535689,
+    "buy_medium": 0.5224277773774576
+  },
+  "{\"action\": \"buy\", \"market_condition\": \"unknown\", \"stock\": \"GOOGL\", \"trader_confidence\": 0.32480561322301155}": {
+    "buy_small": 0.011153712094808298,
+    "buy_medium": -0.17210323264545796
+  },
+  "{\"action\": \"sell\", \"market_condition\": \"unknown\", \"stock\": \"AMZN\", \"trader_confidence\": 0.32480561322301155}": {
+    "sell_small": 0.11304093296072719
+  },
+  "{\"action\": \"sell\", \"market_condition\": \"unknown\", \"stock\": \"META\", \"trader_confidence\": 0.32480561322301155}": {
+    "sell_medium": 0.051291043794661165
+  },
+  "{\"action\": \"sell\", \"market_condition\": \"unknown\", \"stock\": \"MSFT\", \"trader_confidence\": 0.32480561322301155}": {
+    "sell_small": -0.26127034188366716
+  },
+  "{\"action\": \"sell\", \"market_condition\": \"unknown\", \"stock\": \"GOOGL\", \"trader_confidence\": 0.32480561322301155}": {
+    "sell_medium": 1.1252952448718538,
+    "sell_small": -0.26908630243430276
+  },
+  "{\"action\": \"buy\", \"market_condition\": \"unknown\", \"stock\": \"NFLX\", \"trader_confidence\": 0.32480561322301155}": {
+    "buy_medium": -0.9342111500971773
+  },
+  "{\"action\": \"sell\", \"market_condition\": \"unknown\", \"stock\": \"AAPL\", \"trader_confidence\": 0.32480561322301155}": {
+    "sell_medium": -0.04412784466998784,
+    "sell_small": 0.16646425105104842
+  },
+  "{\"action\": \"sell\", \"market_condition\": \"unknown\", \"stock\": \"NVDA\", \"trader_confidence\": 0.32480561322301155}": {
+    "sell_small": 0.0625349858208715
+  },
+  "{\"action\": \"sell\", \"market_condition\": \"unknown\", \"stock\": \"AMD\", \"trader_confidence\": 0.32480561322301155}": {
+    "sell_small": -0.6961154751867422
+  },
+  "{\"action\": \"sell\", \"market_condition\": \"unknown\", \"stock\": \"INTC\", \"trader_confidence\": 0.32480561322301155}": {
+    "sell_small": 0.4279991041879212
+  }
+}
